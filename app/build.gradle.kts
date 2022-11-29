@@ -3,6 +3,7 @@ import org.gradle.api.JavaVersion.VERSION_1_8
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("io.gitlab.arturbosch.detekt").version("1.22.0")
 }
 
 android {
@@ -58,4 +59,8 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${libs.versions.compose.get()}")
     debugImplementation("androidx.compose.ui:ui-tooling:${libs.versions.compose.get()}")
     debugImplementation("androidx.compose.ui:ui-test-manifest:${libs.versions.compose.get()}")
+}
+
+detekt {
+  buildUponDefaultConfig = true
 }
