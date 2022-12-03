@@ -38,6 +38,10 @@ android {
     jvmTarget = "1.8"
   }
 
+  testOptions {
+    unitTests.all { it.useJUnitPlatform() }
+  }
+
   buildFeatures {
     compose = true
   }
@@ -59,6 +63,10 @@ dependencies {
   androidTestImplementation("androidx.compose.ui:ui-test-junit4:${libs.versions.compose.get()}")
   debugImplementation("androidx.compose.ui:ui-tooling:${libs.versions.compose.get()}")
   debugImplementation("androidx.compose.ui:ui-test-manifest:${libs.versions.compose.get()}")
+
+  testImplementation(libs.bundles.kotest)
+  testImplementation(libs.kotest.runner.junit5)
+  androidTestImplementation(libs.bundles.kotest)
 }
 
 detekt {
