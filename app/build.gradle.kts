@@ -8,7 +8,7 @@ plugins {
 
 android {
   namespace = "br.com.colman.nato"
-  compileSdk = 32
+  compileSdk = 33
 
   defaultConfig {
     applicationId = "br.com.colman.nato"
@@ -64,8 +64,14 @@ dependencies {
   debugImplementation("androidx.compose.ui:ui-tooling:${libs.versions.compose.get()}")
   debugImplementation("androidx.compose.ui:ui-test-manifest:${libs.versions.compose.get()}")
 
+  // Compose
+  implementation(libs.bundles.compose)
+
+  // Kotest
   testImplementation(libs.bundles.kotest)
-  testImplementation(libs.kotest.runner.junit5)
+  testImplementation(libs.kotest.runner.junit5) {
+    because("Kotest Runner JUnit5 isn't supported in Android Test Implementation")
+  }
   androidTestImplementation(libs.bundles.kotest)
 }
 
