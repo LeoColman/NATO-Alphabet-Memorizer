@@ -1,7 +1,7 @@
 package br.com.colman.nato
 
 object NatoAlphabet {
-  fun values(): List<Any> = listOf(
+  fun values(): List<NatoAlphabetSymbol> = listOf(
     Alfa,
     Bravo,
     Charlie,
