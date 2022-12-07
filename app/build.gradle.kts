@@ -20,12 +20,14 @@ android {
   }
 
   buildTypes {
-    getByName("release") {
-
+    named("release") {
+      isMinifyEnabled = true
     }
 
-    getByName("debug") {
-
+    named("debug") {
+      applicationIdSuffix = ".debug"
+      isPseudoLocalesEnabled = true
+      isDebuggable = true
     }
   }
 
