@@ -1,4 +1,5 @@
 import org.gradle.api.JavaVersion.VERSION_1_8
+import java.util.Properties
 
 plugins {
   id("com.android.application")
@@ -19,6 +20,26 @@ android {
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
+  signingConfigs {
+    val keystore = rootProject.file("release-keystore.keystore")
+    val keystoreSecret = rootProject.file("release-keystore.keystore.secret")
+
+    if(!keystore.exists() && keystoreSecret.exists()) {
+      logger.warn("Impossible to create signing configuration with files encrypted")
+      return@signingConfigs
+    }
+    val keystoreProperties = Properties().apply {
+      load(rootProject.file("keystore.properties").inputStream())
+    }
+
+    create("signed") {
+      storeFile = keystore
+      storePassword = keystoreProperties.getProperty("KEYSTORE_PASSWORD")
+      keyAlias = keystoreProperties.getProperty("SIGNING_KEY_ALIAS")
+      keyPassword = keystoreProperties.getProperty("SIGNING_KEY_PASSWORD")
+    }
+  }
+
   buildTypes {
     named("release") {
       isMinifyEnabled = true
@@ -28,6 +49,12 @@ android {
       applicationIdSuffix = ".debug"
       isPseudoLocalesEnabled = true
       isDebuggable = true
+    }
+
+    if(signingConfigs.findByName("self-sign") == null) return@buildTypes
+    create("signedRelease") {
+      isMinifyEnabled = true
+      signingConfig = signingConfigs.getByName("signed")
     }
   }
 

@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+.gitsecret/keys/random_seed
+!*.secret
+release-keystore.keystore
+keystore.properties
