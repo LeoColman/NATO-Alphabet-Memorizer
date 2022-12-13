@@ -46,6 +46,7 @@ object NatoAlphabet {
 
 }
 
+@Suppress("FunctionName")
 private fun NatoAlphabetSymbol(symbol: String, codeWord: String) = object : NatoAlphabetSymbol {
   override val symbol: String = symbol
   override val codeWord: String = codeWord
