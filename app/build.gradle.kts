@@ -51,7 +51,7 @@ android {
       isDebuggable = true
     }
 
-    if(signingConfigs.findByName("self-sign") == null) return@buildTypes
+    if(signingConfigs.findByName("signed") == null) return@buildTypes
     create("signedRelease") {
       isMinifyEnabled = true
       signingConfig = signingConfigs.getByName("signed")
