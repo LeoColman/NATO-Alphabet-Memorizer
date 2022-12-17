@@ -46,11 +46,17 @@ repository using
 
 ## F-Droid
 
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/br.com.colman.nato/)
+
 F-Droid release is maintained automatically by the F-Droid repository when we tag a new release. The
 YAML file containing the Metadata can be
-found [here](https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/br.com.colman.nato.yml)
+found [here](https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/br.com.colman.nato.yml).
 
 ## Releases Page / Local
 
 1. Decrypt all git secrets
 2. Run `./gradlew packageSignedReleaseUniversalApk`
+
+You can get an APK file from the [Releases Section](https://github.com/LeoColman/NATO-Alphabet-Memorizer/releases/latest).
