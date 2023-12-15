@@ -6,7 +6,7 @@ kotest = "5.5.4"
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
-compose-activity = "androidx.activity:activity-compose:1.6.1"
+compose-activity = "androidx.activity:activity-compose:1.8.2"
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
 compose-material-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
 compose-material-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
